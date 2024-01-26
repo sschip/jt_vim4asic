@@ -1,1 +1,14 @@
+"""" switching between jump to definition and jump to reference
+"""" jump to reference, C-l to the first one, gl list all tags
+noremap <C-l> :set tags=./tags_reference,~/tags_out/tags_reference<CR>:exec("tag ".expand("<cword>"))<CR>
+noremap gl:set tags=./tags_reference,~/tags_out/tags_reference<CR>:exec("tselect ".expand("<cword>"))<CR>
 
+"""" jump to definition, C-] to the first one, g] list all tags
+noremap <C-]> :set tags=./tags,~/tags_out/tags<CR>:exec("tag ".expand("<cword>"))<CR>
+noremap g]:set tags==./tags,~/tags_out/tags<CR>:exec("tselect ".expand("<cword>"))<CR>
+
+"""" <F12> to jump from the port to its module
+" use auto command to set different mapping on <F12> according to the file type
+" verilog/systemverilog
+nnoremap <F12> :set tags=./tags,~/tags_out/tags<CR>?\.<CR>w"qyw:let qq=@q<CR>?^\s*[a-zA-Z0-9_]\+\_s\+[a-zA-Z0-9_]\+\_s\{-}(\\|^\s*[a-zA-Z0-9_]\+\_s\+#\_s*(\_.\{-})\_s*[a-zA-Z0-9_]\+\_s\{-}(<CR><ESC>/[a-z,0-9,A-Z,-,_]<CR><C-]><ESC>:let qq=substitute(qq,'\s',"","g")<CR>:exe '/\<' . qq.'\>'<CR><ESC>
+autocmd FileType vhdl nnoremap <buffer> <F12> :set tags=./tags,~/tags_out/tags<CR>?[a-zA-Z0-9_]\+\s*=><CR>ve"qyw:let qq=@q<CR>?^\s*[a-zA-Z0-9_]\+\_s\+:\_s*[a-zA-Z0-9_]\+\_s\{-}port\_s\{-}(<CR><ESC>/[a-z,0-9,A-Z,-,_]<CR>2w<C-]><ESC>:let qq=substitute(qq,'\s',"","g")<CR>:exe '/\<' . qq.'\>'<CR><ESC>
