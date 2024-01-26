@@ -6,7 +6,7 @@ JT's vim settings for ASIC design, ASIC verification
       source <your directory of jt_vim4asic>/vimrc_template/vimrc_ctags
    2) Generate tags files for both definitions and referencing.
      make all INPUT_DIR=<your directory with RTL and Testbench> OUTPUT_DIR=~/tags_out
-  3) Open any RTL/TB file and do source code browsing with in provided Keyboard mappings defined in vimrc_template/vimrc_ctags
+   3) Open any RTL/TB file and do source code browsing with in provided Keyboard mappings defined in vimrc_template/vimrc_ctags
 2. To be added
 # Keyboard mappings
 1. RTL TB (UVM) source code browing with VIM + CTAGS, the keyboard mapping is defined in vimrc_template/vimrc_ctags.
