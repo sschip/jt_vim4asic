@@ -1,0 +1,25 @@
+--langdef=vsvref
+--langmap=vsvref:.sv.svh.svi.v.vh
+--regex-vsvref=/^\s*(\b\w+\b)\s+(\b\w+\b)\s*\(.*$/\1/m,module reference ptn 0/ 
+--regex-vsvref=/^\s*(\b\w+\b)\s+#\s*\(.*$/\1/n,module reference ptn 1/
+--regex-vsvref=/^\s*(\b\w+\b)\s*$/\1/L,module reference ptn 2/
+--regex-vsvref=/^\s*(\b\w+\b)\s+(\b\w+\b)\s*;/\1/c,class reference/
+--regex-vsvref=/^\s*(\b\w+\b)\s*#\s*\(.*\)\s*(\b\w+\b)\s*;\s*$/\1/O,class reference with parameter/
+--regex-vsvref=/^\s*(\b\w+\b)\s*;.*$/\1/a,task or function reference without inputs no parentheses/
+--regex-vsvref=/^\s*(\b\w+\b)\s*\(.*$/\1/X,task or function reference with inputs/
+--regex-vsvref=/^\s*(\b\w+\b)\.(\b\w+\b)\s*\(\s*\)\s*;.*$/\2/t, task or function of a class reference without inputs/
+--regex-vsvref=/^\s*(\b\w+\b)\.(\b\w+\b)\s*\(\s*[ ,a-zA-Z_0-9=]+\s*\)\s*;.*$/\2/T, task or function of a class reference with inputs/
+--regex-vsvref=/^\s*class\s+(\b\w+\b)\s*[#]*.*\s+extends\s+(\b\w+\b)/\2/e,base class - first base class/
+--regex-vsvref=/^\s*class\s+(\b\w+\b)\s*[#]*.*\s+extends\s+(\b\w+\b)[^,]*,\s*(\b\w+\b)/\3/E,base class - second base class rare case/
+--regex-vsvref=/^\s*class\s+(\b\w+\b)\s*[#]*.*\s+extends\s+(\b\w+\b)\s*#.*\)\s*,\s*(\b\w+\b)/\3/f,base class - second base class with first base class havin parameters rare case/
+--regex-vsvref=/^\s*class\s+(\b\w+\b)\s*[#]*.*\s+extends\s+(\b\w+\b)[^,]*,\s*(\b\w+\b)[^,]*,\s*([a-zA-Z_0-9+]+)/\4/b,base class - third base class very rare case/
+--regex-vsvref=/^\s*(\b\w+\b)\s+(\b\w+\b)\s*\[.*\]\s*;\s*$/\1/g,class reference with array/
+--regex-vsvref=/^\s*(\b\w+\b)\s*#\s*\(.*\)\s*(\b\w+\b)\s*\[.*\]\s*;\s*$/\1/G,class reference with parameter with array/
+--regex-vsvref=/^\s*(input|output|inout)*\s*(wire|logic|reg)*\s*(\b\w+\b)::(\b\w+\b)/\4/p,typedef or parameter from a package reference ptn 0/
+--regex-vsvref=/\[\s*(\b\w+\b)::(\b\w+\b).*\s*\]/\2/x,typedef or parameter from a package reference ptn 1/
+--regex-vsvref=/\$\w+\s*\((\w+)\s*\)/\1/P,typedef or parameter from a package reference ptn 2/
+--vsvref-kinds=+mnLcOaXtTeEfbgGpPx
+--langdef=vhdlref
+--langmap=vhdlref:.vhd.VHD
+--regex-vhdlref=/^\s*(\b\w+\b)\s*:\s*(\b\w+\b)\s*$/\2/r,reference/
+--vhdlref-kinds=+r
