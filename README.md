@@ -2,7 +2,7 @@
 JT's vim settings for ASIC design, ASIC verification
 # Setup for VIM on Linux
 1. RTL TB (UVM) source code browing with VIM + CTAGS
-   1) Add the following line in your .vimrc at the home directory (~/.vimrc) for VIM + CTAGS keyboard mappings\n
+   1) Add the following line in your .vimrc at the home directory (~/.vimrc) for VIM + CTAGS keyboard mappings\b
       source <your directory of jt_vim4asic>/vimrc_template/vimrc_ctags
    2) Generate tags files for both definitions and referencing.
      make all INPUT_DIR=<your directory with RTL and Testbench> OUTPUT_DIR=~/tags_out
