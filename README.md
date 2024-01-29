@@ -5,7 +5,7 @@ JT's vim settings for ASIC design, ASIC verification
    1) Add the following line in your .vimrc at the home directory (~/.vimrc) for VIM + CTAGS keyboard mappings  
       **source <your directory of jt_vim4asic>/vimrc_template/vimrc_ctags**
    2) Generate tags files for both definitions and referencing.  
-      **Note please add execution permission to ./scripts/tags_post_process.csh and ./scripts/tags_reference_post_process.csh. e.g. chmod u+x ./scripts/tags*
+      **Note please add execution permission to ./scripts/tags_post_process.csh and ./scripts/tags_reference_post_process.csh. e.g. chmod u+x ./scripts/tags\*  
       **make all INPUT_DIR=\<your directory with RTL and Testbench\> OUTPUT_DIR=~/tags_out**
    4) Open any RTL/TB file and do source code browsing with in provided Keyboard mappings defined in vimrc_template/vimrc_ctags
 2. To be added
